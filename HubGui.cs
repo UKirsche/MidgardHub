@@ -42,7 +42,7 @@ public class HubGui : MonoBehaviour
 	private string buttonTextMain = "Howto";
 	private string buttonTextSzenen = "Abenteuer";
 	private string buttonTextWuerfelDeck = "Würfeldeck";
-	private string buttonTextGenerator = "Generator";
+	private string buttonTextGenerator = "Charakterverwaltung";
 
 
 
@@ -50,12 +50,9 @@ public class HubGui : MonoBehaviour
 									 "Das Hauptmenü erlaubt v.a. das Auswählen von Szenerien sowie das Öffnen des Würfeldecks.\n" +
 									 "Aus den Szenerien wählen die Spieler die vom Meister angegebene Szene.\n" +
 									 "Im Würfeldeck können die Teilnehmer ihren gewünschten Würfel auswählen und für alle sichtbar würfeln.\n\n\n" +
-	                                 "<color=black>Abenteuer</color>\t Lädt das Abenteuer, das erkundet werden kann, evtl auch eine Zusammenfassung\n" +
-	                                 "<color=black>Würfeldeck</color>\t Lädt den gemeinesamen Würfelbecher\n" +
-	                                 "<color=black>Generator</color>\t Erlaubt das Erstellen eines Midgard Characters. Fürs Spiel kann Avatar gewählt werden\n";
-
-	private string sceneDescription = "Wähle das Abenteuer";
-	private string diceDescription = "Das Würfeldeck erlaubt für alle sichtbares Würfeln";
+	                                 "<color=black>Abenteuer</color>\t\t Lädt das Abenteuer, das erkundet werden kann, evtl auch eine Zusammenfassung\n" +
+	                                 "<color=black>Würfeldeck</color>\t\t Lädt den gemeinesamen Würfelbecher\n" +
+	                                 "<color=black>Charakterverwaltung</color>\t Erlaubt das Erstellen und Laden eines Midgard Characters. Fürs Spiel kann 3-Avatar gewählt werden\n";
 
 
 	private MenuSelector menuSelection = new MenuSelector();
@@ -65,6 +62,7 @@ public class HubGui : MonoBehaviour
 	private MenuBtn wuerfelButton;
 	private MenuBtn charGenButton;
 	private MenuBtn charChoserButton;
+	private MenuBtn charAvatarButton;
 
 
 	GUIStyle m_Headline;
@@ -75,28 +73,34 @@ public class HubGui : MonoBehaviour
 			PhotonNetwork.Disconnect ();
 		}
 
-		scene1Button = new MenuBtn () { 
-			Text = "<color=black>Mord im Kloster</color>", 
-			Link = "MidgardGame-Scene" 
-		};
 
-		scene2Button = new MenuBtn () { 
-			Text = "<color=black>Was bisher geschah...</color>", 
+		scene1Button = new MenuBtn () { 
+			Text = "Was bisher geschah...", 
 			Link = "MidgardBisher" 
 		};
 
+		scene2Button = new MenuBtn () { 
+			Text = "Mord im Kloster", 
+			Link = "MidgardGame-Scene" 
+		};
+
 		wuerfelButton = new MenuBtn () { 
-			Text = "<color=black>Zum Würfeldeck</color>", 
+			Text = "Zum Würfeldeck", 
 			Link = "MidgardWuerfel" 
 		};
 
 		charGenButton = new MenuBtn () { 
-			Text = "<color=black>Zum Charaktergenerator</color>", 
+			Text = "Zum Charaktergenerator", 
 			Link = "MidgardUICharGen" 
 		};
 
 		charChoserButton = new MenuBtn () { 
-			Text = "<color=black>Avatar wählen</color>", 
+			Text = "Charakter auswählen", 
+			Link = "MidgardUICharChoose" 
+		};
+
+		charAvatarButton = new MenuBtn () { 
+			Text = "3D-Avatar wählen", 
 			Link = "CharacterChoser" 
 		};
 
@@ -158,7 +162,6 @@ public class HubGui : MonoBehaviour
 		if (this.menuSelection.main == true) {
 			GUILayout.Label (mainDescription);
 		} else if (this.menuSelection.scenes == true) {
-			GUILayout.Label (sceneDescription);
 			if (GUILayout.Button (this.scene1Button.Text)) {
 				SceneManager.LoadScene (this.scene1Button.Link);
 			}
@@ -166,7 +169,6 @@ public class HubGui : MonoBehaviour
 				SceneManager.LoadScene (this.scene2Button.Link);
 			}
 		} else if (this.menuSelection.dice == true) { 
-				GUILayout.Label (diceDescription);
 				if (GUILayout.Button (this.wuerfelButton.Text)) {
 					SceneManager.LoadScene (this.wuerfelButton.Link);
 				}
@@ -177,6 +179,9 @@ public class HubGui : MonoBehaviour
 			}
 			if (GUILayout.Button (this.charChoserButton.Text)) {
 				SceneManager.LoadScene (this.charChoserButton.Link);
+			}
+			if (GUILayout.Button (this.charAvatarButton.Text)) {
+				SceneManager.LoadScene (this.charAvatarButton.Link);
 			}
 		}
 				
