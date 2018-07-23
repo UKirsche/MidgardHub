@@ -46,7 +46,7 @@ public class HubGui : MonoBehaviour
 
 
 
-	private string mainDescription = "<color=black>MIDGARD</color>\n\n" +
+	private string mainDescription = "<color=darkgrey>MIDGARD</color>\n\n" +
 									 "Das Hauptmenü erlaubt v.a. das Auswählen von Szenerien sowie das Öffnen des Würfeldecks.\n" +
 									 "Aus den Szenerien wählen die Spieler die vom Meister angegebene Szene.\n" +
 									 "Im Würfeldeck können die Teilnehmer ihren gewünschten Würfel auswählen und für alle sichtbar würfeln.\n\n\n" +
