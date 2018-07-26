@@ -46,10 +46,7 @@ public class HubGui : MonoBehaviour
 
 
 
-	private string mainDescription = "<color=darkgrey>MIDGARD</color>\n\n" +
-									 "Das Hauptmenü erlaubt v.a. das Auswählen von Szenerien sowie das Öffnen des Würfeldecks.\n" +
-									 "Aus den Szenerien wählen die Spieler die vom Meister angegebene Szene.\n" +
-									 "Im Würfeldeck können die Teilnehmer ihren gewünschten Würfel auswählen und für alle sichtbar würfeln.\n\n\n" +
+	private string mainDescription = "<color=black>Erklärung</color>\n\n" +
 	                                 "<color=black>Abenteuer</color>\t\t Lädt das Abenteuer, das erkundet werden kann, evtl auch eine Zusammenfassung\n" +
 	                                 "<color=black>Würfeldeck</color>\t\t Lädt den gemeinesamen Würfelbecher\n" +
 	                                 "<color=black>Charakterverwaltung</color>\t Erlaubt das Erstellen und Laden eines Midgard Characters. Fürs Spiel kann 3-Avatar gewählt werden\n";
@@ -90,18 +87,18 @@ public class HubGui : MonoBehaviour
 		};
 
 		charGenButton = new MenuBtn () { 
-			Text = "Zum Charaktergenerator", 
+			Text = "Zum Midgard Charaktergenerator", 
 			Link = "MidgardUICharGen" 
 		};
 
 		charChoserButton = new MenuBtn () { 
-			Text = "Charakter auswählen", 
-			Link = "MidgardUICharChoose" 
+			Text = "Midgard Charakter auswählen", 
+			Link = "CharacterChooser" 
 		};
 
 		charAvatarButton = new MenuBtn () { 
 			Text = "3D-Avatar wählen", 
-			Link = "CharacterChoser" 
+			Link = "AvatarChoser" 
 		};
 
 		m_Headline = new GUIStyle (this.Skin.label);
